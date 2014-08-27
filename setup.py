@@ -19,9 +19,11 @@ if os.path.exists('README.md'):
 scripts = glob.glob("application/*")
 
 setup(name='DynamicMachine',
-      version='0.1',
+      version='1.0',
       maintainer='Luke Woydziak',
-      url = 'https://github.com/Pipe-s/devops',
+      maintainer_email='lwoydziak@gmail.com',
+      url = 'https://github.com/Pipe-s/dynamic_machine',
+      download_url = 'https://github.com/Pipe-s/dynamic_machine/tarball/1.0',
       platforms = ["any"],
       description = 'Python package for running the Dynamic Machine application.',
       long_description = read('README.txt'),
@@ -40,9 +42,8 @@ setup(name='DynamicMachine',
       install_requires=[
                         "apache-libcloud",
                         "pexpect",
-                        "jsonconfigfile",
+                        "jsonconfigfile"
                        ],
-      dependency_links=['git+git://github.com/pipe-s/jsonconfigfile.git#egg=jsonconfigfile-1.0.0'],
       scripts=scripts
       )
 

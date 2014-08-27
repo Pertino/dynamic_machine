@@ -272,7 +272,6 @@
 		<exec executable="./in_virtual_env">
 			<arg value="pip3"/>
 			<arg value="install"/>
-			<arg value="--process-dependency-links"/>
 			<arg value="${packageToInstall}"/>
 		</exec>
 	</target>
@@ -284,4 +283,19 @@
 			<arg value="DynamicMachine"/>
 		</exec>
 	</target>
+	<target name="package-deploy" depends="clean,package-remove">
+                <exec executable="./in_virtual_env">
+                        <arg value="python3"/>
+                        <arg value="setup.py"/>
+                        <arg value="register"/>
+                        <arg value="-r pypi"/>
+                </exec>
+                <exec executable="./in_virtual_env">
+                        <arg value="python3"/>
+                        <arg value="setup.py"/>
+                        <arg value="sdist"/>
+                        <arg value="upload"/>
+                        <arg value="-r pypi"/>
+                </exec>
+        </target>
 </project>
